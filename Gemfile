@@ -1,40 +1,49 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# CORE SYSTEM
 gem 'rails', '4.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'sqlite3'                           # Use sqlite3 as the database for Active Record
+gem 'jquery-rails'                      # Use jquery as the JavaScript library
+gem 'jbuilder', '~> 2.0'                # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'puma'                              # Use unicorn as the app server
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+# ASSET PIPELINE
+gem "bourbon"                           # Sass mixins from Thoughtbot
+gem 'sass-rails', '~> 4.0.3'            # Use SCSS for stylesheets
+gem "compass-rails"                     # Sass mixins and spriting engine from Compass
+gem "oily_png"                          # PNG exporting for Compass
+gem 'uglifier', '>= 1.3.0'              # Use Uglifier as compressor for JavaScript assets
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# PRODUCTION ONLY GEMS
+group :production do
+end
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# QA ONLY GEMS
+group :qa do
+  gem "better_errors"                   # Very pretty error screens
+  gem "binding_of_caller"               # Adds REPL support to better_errors
+  gem "quiet_assets"                    # Suppresses Asset Pipline logging
+end
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# TEST ONLY GEMS
+group :test do
+  gem "rake"
+  gem "rspec-rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem "launchy"
+end
+
+# AUDITING OR DEVELOPMENT-ONLY GEMS
+group :development do
+  gem "better_errors"                   # Very pretty error screens
+  gem "binding_of_caller"               # Adds REPL support to better_errors
+  gem "quiet_assets"                    # Suppresses Asset Pipline logging
+  gem "rspec-rails"
+  gem 'spring'                          # Keeps dev application running in the background
+end
 
