@@ -1,0 +1,35 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore asset pipeline compiled assets
+public/assets
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore filesystem trash
+
+*.DS_Store
+*Thumbs.db
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+# Ignore local dev only files
+
+.bundle
+.env
+.ruby-gemset
+config/database.yml
+Guardfile
+
+# Specifically DO NOT ignore these other things
+
+!.gitignore
+!.ruby-version
+
