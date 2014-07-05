@@ -8,5 +8,8 @@
 
 
 requirejs.config({
-  baseUrl: '/api/',
+  baseUrl: '/assets/src/',
+  paths: {
+    'text': '../vendor/require-text',
+  }
 });
