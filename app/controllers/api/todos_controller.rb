@@ -20,7 +20,7 @@ class Api::TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.json { render :show, status: :created, location: @todo }
+        format.json { render :show, status: :created, location: api_todo_url(@todo) }
       else
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
@@ -31,7 +31,7 @@ class Api::TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
-        format.json { render :show, status: :ok, location: @todo }
+        format.json { render :show, status: :ok, location: api_todo_url(@todo) }
       else
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
