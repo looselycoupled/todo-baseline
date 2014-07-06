@@ -1,14 +1,17 @@
 /**
  *  main.js
- *  description
+ *  This files serves as the entry point for application startup.
  *
- *  Author:   Allen Leis <allen@cobrain.com>
+ *  In a more sophisticated codebase, this file would setup routing and
+ *  other application wide dependencies.
+ *
+ *  Author:   Allen Leis <allen.leis@gmail.com>
  *  Created:  Tue Jun 24 18:48:02 2014 -0400
  *
  *  Copyright (C) 2014 Tipsy Bear Studios
  *  For license information, see LICENSE.txt
  *
- *  ID: main.js [] allen@cobrain.com $
+ *  ID: main.js [] allen.leis@gmail.com $
  */
 
 // JS Hint directives and strict mode
