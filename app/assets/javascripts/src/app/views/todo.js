@@ -42,6 +42,19 @@ define(dependencies, function(_, Backbone, TodoModel, TodoHTML){
       return this;
     },
 
+    events: {
+      'click .remove': 'onRemove',
+    },
+
+    onRemove: function(evt){
+      evt.preventDefault();
+      var _this = this;
+      this.model.destroy()
+        .done(function(){
+          _this.remove();
+        });
+    },
+
 
   });
 
