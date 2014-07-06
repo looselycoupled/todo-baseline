@@ -8,9 +8,17 @@
     <div class="panel panel-default" id="todo-list-panel">
       <!-- Default panel contents -->
       <div class="panel-heading">Todo List</div>
-      <!-- <div class="panel-body">
-        <p>FORM TO ADD NEW ITEMS</p>
-      </div> -->
+      <div class="panel-body">
+
+        <form class="form-inline" role="form" id="todo-form">
+          <div class="form-group">
+            <label class="sr-only" for="input-title">Title</label>
+            <input type="text" class="form-control" id="input-title" name="title" placeholder="I need to...">
+          </div>
+          <button type="submit" class="btn btn-primary create">Create</button>
+        </form>
+
+      </div>
 
       <!-- List group -->
       <ul class="list-group" id="todo-list">

@@ -16,22 +16,39 @@
 'use strict';
 
 var dependencies = [
+  'jquery',
   'backbone',
   'app/models/todo'
 ];
 
 
-define(dependencies, function(Backbone, TodoModel){
+define(dependencies, function($, Backbone, TodoModel){
 
+  var _instance;
+  var _promise;
 
   var TodoCollection = Backbone.Collection.extend({
 
     model: TodoModel,
 
-    url: '/api/todos'
+    url: '/api/todos',
+
+    load: function(){
+      if (!_promise) {
+        _promise = this.fetch({ reset: true });
+      }
+      return _promise;
+    }
 
   });
 
-  return TodoCollection;
+  return {
+    instance: function(){
+      if (!_instance) {
+        _instance = new TodoCollection();
+      }
+      return _instance;
+    }
+  };
 
 });

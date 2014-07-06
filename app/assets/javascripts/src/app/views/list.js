@@ -24,28 +24,41 @@ var dependencies = [
 
 
 define(dependencies, function(_, Backbone, TodoCollection, TodoItemView){
+  var views = [];
 
   var TodoListView = Backbone.View.extend({
 
-    collection: new TodoCollection(),
+    collection: TodoCollection.instance(),
 
     initialize: function(){
-      this.collection.fetch({ reset: true });
+      this.collection.load();
       this.listenTo(this.collection, 'reset', this.render);
+      this.listenTo(this.collection, 'add', this.render);
     },
 
     render: function(){
-      var el = this.$el;
-      el.empty();
+      var _this = this;
+      this.clear();
 
       this.collection.forEach(function(model){
-        var view = new TodoItemView({ model: model });
-        var x = view.render().$el;
-        el.append(x);
+        _this.append(model);
       });
 
       return this;
     },
+
+    append: function(model){
+      var view = new TodoItemView({ model: model });
+      this.$el.append(view.render().$el);
+      views.push(view);
+      return view;
+    },
+
+    clear: function(){
+      _.invoke(views, 'remove');
+      views.length = 0;
+      return this;
+    }
 
   });
 

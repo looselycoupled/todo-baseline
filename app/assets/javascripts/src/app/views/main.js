@@ -17,11 +17,12 @@
 
 var dependencies = [
   'backbone',
-  'app/views/list'
+  './list',
+  './form',
 ];
 
 
-define(dependencies, function(Backbone, ListView){
+define(dependencies, function(Backbone, ListView, FormView){
   var views = [];
 
   var MainView = Backbone.Model.extend({
@@ -39,6 +40,9 @@ define(dependencies, function(Backbone, ListView){
 
       var list = new ListView({ el: '#todo-list' });
       views.push(list);
+
+      var form = new FormView({ el: '#todo-form' });
+      views.push(form);
     },
 
   });
