@@ -1,0 +1,34 @@
+<div id="sign-up">
+
+  <div class="modal fade" id="modal-sign-up" tabindex="-1" role="dialog" aria-labelledby="Sign Up" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
+
+
+            <div class="form-group">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: "on", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: "on", class: "form-control" %>
+            </div>
+
+            <%= f.button "Register", type: "submit", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

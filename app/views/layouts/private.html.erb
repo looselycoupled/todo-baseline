@@ -3,6 +3,7 @@
       <%= csrf_meta_tags %>
     <% end %>
 
+    <%= content_for :main do %>
     <div class="container content">
 
       <div class="navbar navbar-inverse navbar-default" role="navigation">
@@ -36,5 +37,5 @@
 
     <%= javascript_include_tag 'application' %>
     <script>require(['app/main']);</script>
-
+    <% end %>
     <%= render template: "layouts/application" %>

@@ -2,6 +2,8 @@
       <%= stylesheet_link_tag    'public', media: 'all' %>
     <% end %>
 
+    <%= content_for :main do %>
+    <%= render template: "devise/shared" %>
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
@@ -12,8 +14,9 @@
             <div class="inner">
               <h3 class="masthead-brand">Todo</h3>
               <ul class="nav masthead-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><%= link_to "Login", new_user_session_path %></li>
+                <li class="active"><%= link_to "Home", welcome_path %></li>
+                <li><a data-toggle="modal" href="#modal-sign-in">Sign In</a></li>
+                <li><a data-toggle="modal" href="#modal-sign-up">Register</a></li>
               </ul>
             </div>
           </div>
@@ -33,5 +36,8 @@
       </div>
 
     </div>
+
+    <%= javascript_include_tag 'application' %>
+    <% end %>
 
     <%= render template: "layouts/application" %>

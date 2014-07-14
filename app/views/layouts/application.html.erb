@@ -13,12 +13,12 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Todo</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Todo Baseline" %></title>
     <%= yield :head %>
   </head>
   <body>
 
-    <%= yield :body %>
+    <%= content_for?(:main) ? yield(:main) : yield %>
 
   </body>
 </html>
