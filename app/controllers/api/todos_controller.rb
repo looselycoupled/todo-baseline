@@ -2,12 +2,14 @@ class Api::TodosController < ApplicationController
 
   respond_to :json
 
+  before_action :enforce_api_login
   before_action :ensure_json_request
   before_action :set_todo, only: [:show, :update, :destroy]
+  before_action :enforce_ownership, only: [:show, :update, :destroy]
 
   # GET /api/todos
   def index
-    @todos = Todo.all
+    @todos = current_user.todos
   end
 
   # GET /api/todos/1
@@ -16,7 +18,7 @@ class Api::TodosController < ApplicationController
 
   # POST /api/todos
   def create
-    @todo = Todo.new(todo_params)
+    @todo = Todo.new(todo_params.merge({ user: current_user }))
 
     respond_to do |format|
       if @todo.save
@@ -48,6 +50,20 @@ class Api::TodosController < ApplicationController
 
   private
 
+
+    # Only allow users with active session
+    def enforce_api_login
+      if !user_signed_in?
+      render :nothing => true, :status => 401
+      end
+    end
+
+    # Only allow owner to perform certain actions
+    def enforce_ownership
+      if @todo.user != current_user
+      render :nothing => true, :status => 403
+      end
+    end
 
     # Only calls requesting json should be allowed
     def ensure_json_request

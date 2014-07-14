@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :todos
 
   # Include default devise modules. Others available are:
   # :recoverable, :confirmable, :lockable, :timeoutable and :omniauthable
