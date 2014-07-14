@@ -1,0 +1,37 @@
+    <% content_for :head do %>
+      <%= stylesheet_link_tag    'public', media: 'all' %>
+    <% end %>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Todo</h3>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><%= link_to "Login", new_user_session_path %></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="inner cover">
+          <%= yield %>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Tipsy Bear Studios</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <%= render template: "layouts/application" %>

@@ -1,4 +1,7 @@
 class PublicController < ApplicationController
-  def home
+  layout 'public'
+
+  def welcome
   end
+
 end
