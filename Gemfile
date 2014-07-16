@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'                # Build JSON APIs with ease. Read more: 
 gem 'puma'                              # Use unicorn as the app server
 gem 'devise'
 gem 'bcrypt'
+gem 'dotenv-rails'
 
 # ASSET PIPELINE
 gem "bourbon"                           # Sass mixins from Thoughtbot
@@ -17,6 +18,7 @@ gem 'sass-rails', '~> 4.0.3'            # Use SCSS for stylesheets
 gem "compass-rails"                     # Sass mixins and spriting engine from Compass
 gem "oily_png"                          # PNG exporting for Compass
 gem 'uglifier', '>= 1.3.0'              # Use Uglifier as compressor for JavaScript assets
+gem 'non-stupid-digest-assets'          # Restores Rails 3 non-digest assets copies
 
 
 # PRODUCTION ONLY GEMS

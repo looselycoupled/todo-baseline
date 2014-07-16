@@ -8,7 +8,7 @@
 
 
 requirejs.config({
-  baseUrl: '/assets/src/',
+  baseUrl: <% if Rails.env.development? %>'/assets/src/'<% else %>'/assets/src/'<% end %>,
   paths: {
     'text': '../vendor/require-text',
   }
