@@ -23,6 +23,7 @@ gem 'non-stupid-digest-assets'          # Restores Rails 3 non-digest assets cop
 
 # PRODUCTION ONLY GEMS
 group :production do
+  gem 'rails_12factor'                  # Heroku gem for better Rails 4 support
 end
 
 # QA ONLY GEMS
