@@ -7,7 +7,7 @@ gem 'rails', '4.1.1'
 gem 'sqlite3'                           # Use sqlite3 as the database for Active Record
 gem 'jquery-rails'                      # Use jquery as the JavaScript library
 gem 'jbuilder', '~> 2.0'                # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'puma'                              # Use unicorn as the app server
+gem 'unicorn'                           # Use unicorn as the app server
 gem 'devise'
 gem 'bcrypt'
 gem 'dotenv-rails'
